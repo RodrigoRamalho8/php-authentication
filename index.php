@@ -16,9 +16,11 @@ $usuarioLogado = $_SESSION['usuario'] ?? null;
     <title>Document</title>
 </head>
 <body>
-        <p>
+        <p> 
+            <a href="index.php">Home</a>
             <a href="login.php">Login</a>
             <a href="privado.php">Privado</a>
+            <a href="logout.php">Logout</a>
         </p>
 
 

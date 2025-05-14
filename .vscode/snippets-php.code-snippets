@@ -1,0 +1,26 @@
+{
+	"Tag PHP": {
+		"prefix": "php",
+		"body": [
+			"<?php $1 ?>"
+		],
+		"description": "Create PHP tag"
+		},
+		"Tag PHP echo": {
+			"prefix": "echo",
+			"body": [
+				"<?= $1 ?>"
+			],
+			"description": "Create PHP tag"
+		},
+	
+		"PHP debug":{
+			"prefix": "debug",
+			"body": [
+				"<pre>",
+				"\t<?php print_r($1); ?>",
+				"</pre>"
+			],
+			"description": "Print para debug"
+		}
+}

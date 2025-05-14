@@ -10,13 +10,15 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(!empty($emailForm) && !empty($senhaForm)){
 
         $emailCorreto = 'adm@mail.com';
-        $senhaCorreta = '123';
+        $senhaCorreta = password_hash('123', PASSWORD_BCRYPT);
+        $perfil = 'Administrador';
 
-        if($emailForm === $emailCorreto && $senhaForm === $senhaCorreta){
+        if($emailForm === $emailCorreto && password_verify($senhaForm, $senhaCorreta)){
 
             $_SESSION['usuario'] = $emailForm;
+            $_SESSION['perfil'] = $perfil;
 
-            var_dump($_SESSION['usuario']);
+            header('Location: privado.php');
 
         }
         
@@ -26,7 +28,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +36,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     <title>Document</title>
 </head>
 <body>
+        <p>
+            <a href="index.php">Home</a>
+            <a href="login.php">Login</a>
+            <a href="privado.php">Privado</a>
+            <a href="logout.php">Logout</a>
+        </p>
+
+
+
         <h1>Login: Todos podem acessar</h1>
+
 
 
         <form action="login.php" method="POST">
